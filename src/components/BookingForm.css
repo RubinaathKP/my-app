@@ -1,141 +1,293 @@
-.booking-form {
-  max-width: 550px;
-  width: 100%;
-  margin: 2rem auto;
+/* ----------  BOOKING CONTAINER  ---------- */
+.booking-container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
   padding: 2rem;
-  background-color: #2b2d77; /* dark indigo bg */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
+  background: linear-gradient(145deg, #495E57 0%, #333333 100%);
 }
 
+.booking-container h2 {
+  color: #F4CE14;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ----------  FORM CONTAINER  ---------- */
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 500px;
+  padding: 3rem;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 2px solid #FBDABB;
+  box-shadow: 0 20px 60px rgba(73, 94, 87, 0.15);
+}
+
+/* ----------  FIELD WRAPPER  ---------- */
 .form-field {
-  margin-bottom: 1.8rem;
-}
-
-.form-field label {
-  display: block;
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-  font-size: 1rem;
-  color: #e0e0ff;
-}
-
-input[type="date"],
-input[type="number"] {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: 2px solid #5551e3;
-  font-size: 1rem;
-  background-color: #f2f2ff;
-  color: #222;
-  box-sizing: border-box;
-  outline: none;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(22, 163, 74); /* green */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background-color: rgb(19, 137, 63);
-}
-
-/* Custom dropdown styling */
-.custom-select-wrapper {
+  display: grid;
+  gap: 0.6rem;
   position: relative;
 }
 
-.custom-select {
-  width: 100%;
-  background-color: #f2f2ff;
-  color: #333;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
+/* ----------  LABEL  ---------- */
+.form-field label {
   font-size: 1rem;
+  font-weight: 700;
+  color: #495E57;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ----------  INPUTS & SELECTS  ---------- */
+.form-field input,
+.form-field select {
+  padding: 1.2rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  background: #EDEFEE;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(73, 94, 87, 0.08);
+}
+
+/* Focus & Hover States */
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #F4CE14;
+  background: #FFFFFF;
+  box-shadow: 
+    0 0 0 3px rgba(244, 206, 20, 0.2),
+    0 4px 16px rgba(244, 206, 20, 0.15);
+  transform: translateY(-2px);
+}
+
+.form-field input:hover,
+.form-field select:hover {
+  border-color: #EE9972;
+  box-shadow: 0 4px 12px rgba(238, 153, 114, 0.12);
+}
+
+/* ----------  SELECT SPECIFIC STYLING  ---------- */
+/* ----------  SELECT SPECIFIC STYLING (SIMPLE FIX)  ---------- */
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   cursor: pointer;
+  padding-right: 3rem;
+  background: #EDEFEE;
+  position: relative;
+}
+
+/* Simple CSS arrow that won't duplicate */
+.form-field select {
+  background-image: linear-gradient(45deg, transparent 50%, #495E57 50%), 
+                    linear-gradient(135deg, #495E57 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), 
+                       calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.form-field select:focus {
+  background-image: linear-gradient(45deg, transparent 50%, #F4CE14 50%), 
+                    linear-gradient(135deg, #F4CE14 50%, transparent 50%);
+}
+
+.form-field select:hover {
+  background-image: linear-gradient(45deg, transparent 50%, #EE9972 50%), 
+                    linear-gradient(135deg, #EE9972 50%, transparent 50%);
+}
+
+/* ----------  DROPDOWN MENU ITEMS STYLING  ---------- */
+.form-field select option {
+  background: #FFFFFF;
+  color: #495E57;
+  padding: 12px 16px;
+  font-weight: 500;
+  border: none;
+}
+
+.form-field select option:hover {
+  background: linear-gradient(135deg, #FBDABB 0%, #EE9972 30%);
+  color: #495E57;
+}
+
+.form-field select option:checked,
+.form-field select option:selected {
+  background: linear-gradient(135deg, #F4CE14 0%, #EE9972 100%);
+  color: #495E57;
+  font-weight: 700;
+}
+
+.form-field select option.available-table {
+  background: rgba(244, 206, 20, 0.1);
+  color: #495E57;
+  font-weight: 600;
+}
+
+/* ----------  DATE INPUT STYLING  ---------- */
+.form-field input[type="date"] {
+  color-scheme: light;
+}
+
+.form-field input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23495E57" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>') no-repeat;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(1068%) hue-rotate(103deg) brightness(91%) contrast(87%);
+}
+
+/* ----------  ENHANCED SUBMIT BUTTON (FIXED)  ---------- */
+.submit-btn {
+  background: linear-gradient(135deg, #F4CE14 0%, #EE9972 100%);
+  color: #495E57;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.5rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border: 2px solid #5551e3;
-  transition: border 0.3s ease;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 1;
 }
 
-.custom-select.open {
-  border-color: #7773ff;
+.submit-btn:hover {
+  background: linear-gradient(135deg, #EE9972 0%, #F4CE14 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(238, 153, 114, 0.4);
 }
 
-.selected-value {
-  flex-grow: 1;
+.submit-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(238, 153, 114, 0.25);
 }
 
-.dropdown-arrow {
-  border: solid #333;
-  border-width: 0 2px 2px 0;
-  padding: 4px;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
+/* Loading state for submit button */
+.submit-btn.loading {
+  background: linear-gradient(135deg, #FBDABB 0%, #EE9972 100%);
+  cursor: not-allowed;
+  transform: none;
 }
 
-.dropdown-arrow.rotate {
-  transform: rotate(-135deg);
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.dropdown-options {
-  position: absolute;
-  width: 100%;
-  background-color: #fff;
-  color: #333;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 8px 8px;
-  z-index: 1000;
-  max-height: 200px;
-  overflow-y: auto;
-  animation: fadeIn 0.3s ease-in-out;
-  border: 1px solid #5551e3;
+/* Loading spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #495E57;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-.dropdown-option {
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.dropdown-option:hover {
-  background-color: #ececff;
-  color: #5551e3;
+/* ----------  FORM ANIMATIONS  ---------- */
+.form-field {
+  animation: slideInUp 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.dropdown-option.selected {
-  background-color: #dcdcff;
-  font-weight: bold;
-  color: #2b2d77;
-}
+.form-field:nth-child(1) { animation-delay: 0.1s; }
+.form-field:nth-child(2) { animation-delay: 0.2s; }
+.form-field:nth-child(3) { animation-delay: 0.3s; }
+.form-field:nth-child(4) { animation-delay: 0.4s; }
+.form-field:nth-child(5) { animation-delay: 0.5s; }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
+@keyframes slideInUp {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ----------  RESPONSIVE DESIGN  ---------- */
+@media (max-width: 768px) {
+  .booking-container {
+    padding: 1.5rem;
+  }
+  
+  .booking-form {
+    padding: 2.5rem;
+    gap: 1.5rem;
+    max-width: 450px;
+  }
+  
+  .form-field input,
+  .form-field select {
+    padding: 1rem 1.25rem;
+  }
+  
+  .form-field select {
+    padding-right: 2.75rem;
+  }
+  
+  .submit-btn {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-container {
+    padding: 1rem;
+  }
+  
+  .booking-form {
+    padding: 2rem;
+    gap: 1.25rem;
+    max-width: 380px;
+  }
+  
+  .booking-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-field label {
+    font-size: 0.9rem;
+  }
+  
+  .form-field input,
+  .form-field select {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .submit-btn {
+    padding: 1.1rem 1.25rem;
+    font-size: 1rem;
   }
 }

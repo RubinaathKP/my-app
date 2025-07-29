@@ -1,0 +1,197 @@
+.confirmed-booking-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(145deg, #495E57 0%, #333333 100%);
+}
+
+.confirmation-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(73, 94, 87, 0.15);
+  max-width: 500px;
+  border: 2px solid #F4CE14;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.success-icon {
+  justify-self: center;
+  animation: bounceIn 0.8s ease-out;
+}
+
+.confirmation-container h1 {
+  color: #495E57;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.confirmation-container p {
+  color: #333333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.confirmation-details {
+  padding: 1.5rem;
+  background: #EDEFEE;
+  border-radius: 12px;
+  border-left: 4px solid #F4CE14;
+  text-align: left;
+}
+
+.confirmation-details h3 {
+  color: #495E57;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.booking-summary {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.booking-summary p {
+  color: #495E57;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.email-note {
+  color: #495E57 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Button Container */
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Base button styles (shared properties) */
+.new-booking-btn,
+.return-home-btn {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 56px; /* Fixed height to ensure equal sizing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Ensures padding is included in total size */
+}
+
+/* New Booking Button - specific styles */
+.new-booking-btn {
+  background: linear-gradient(135deg, #F4CE14 0%, #EE9972 100%);
+  color: #495E57;
+}
+
+.new-booking-btn:hover {
+  background: linear-gradient(135deg, #EE9972 0%, #F4CE14 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 153, 114, 0.3);
+}
+
+/* Return to Home Button - specific styles */
+.return-home-btn {
+  background: linear-gradient(135deg, #495E57 0%, #333333 100%);
+  color: #EDEFEE;
+  border: 2px solid transparent; /* Use transparent border to match sizing */
+}
+
+.return-home-btn:hover {
+  background: linear-gradient(135deg, #333333 0%, #495E57 100%);
+  border-color: #F4CE14;
+  color: #F4CE14;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(73, 94, 87, 0.3);
+}
+
+.return-home-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 12px rgba(73, 94, 87, 0.2);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 480px) {
+  .button-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmed-booking-page {
+    padding: 1rem;
+  }
+  
+  .confirmation-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .confirmation-container h1 {
+    font-size: 2rem;
+  }
+  
+  .new-booking-btn,
+  .return-home-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    min-height: 48px; /* Smaller fixed height for mobile */
+  }
+  
+  .button-container {
+    gap: 1rem;
+  }
+}
