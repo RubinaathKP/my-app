@@ -1,0 +1,36 @@
+/* ----------  PAGE WRAPPER  ---------- */
+.booking-page {
+  /* center everything  */
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(145deg, #495E57 0%, #333333 100%);
+}
+
+/* ----------  HEADER  ---------- */
+.booking-page header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #EDEFEE;
+}
+
+.booking-page h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #F4CE14;
+  margin-bottom: 0.5rem;
+}
+
+.booking-page p {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Put some breathing room on very small screens */
+@media (max-width: 480px) {
+  .booking-page {
+    padding: 1rem;
+  }
+}
