@@ -1,7 +1,16 @@
-import React from 'react';
-import './ConfirmBooking.css';
+import React, { useEffect, useRef } from 'react';
+import './ConfirmedBooking.css';
 
 const ConfirmedBooking = ({ formData, onNewBooking }) => {
+  const headingRef = useRef(null);
+
+  // Focus management for screen readers
+  useEffect(() => {
+    if (headingRef.current) {
+      headingRef.current.focus();
+    }
+  }, []);
+
   const handleReturnHome = () => {
     // Navigate to homepage - you can adjust this based on your routing setup
     window.location.href = '/';
@@ -9,45 +18,66 @@ const ConfirmedBooking = ({ formData, onNewBooking }) => {
   };
 
   return (
-    <div className="confirmed-booking-page">
+    <div className="confirmed-booking-page" role="main" aria-labelledby="confirmation-heading">
       <div className="confirmation-container">
-        <div className="success-icon">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+        <div className="success-icon" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" role="img" aria-label="Success checkmark">
             <circle cx="12" cy="12" r="10" fill="#F4CE14"/>
             <path d="m9 12 2 2 4-4" stroke="#495E57" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <h1>Booking Confirmed!</h1>
+        
+        <h1 id="confirmation-heading" ref={headingRef} tabIndex="-1">
+          Booking Confirmed!
+        </h1>
+        
         <p>Your table reservation has been successfully confirmed.</p>
         <p>We look forward to serving you at Little Lemon!</p>
         
-        <div className="confirmation-details">
-          <h3>Reservation Details:</h3>
+        <section className="confirmation-details" aria-labelledby="details-heading">
+          <h2 id="details-heading">Reservation Details:</h2>
           <div className="booking-summary">
-            <p><strong>Date:</strong> {formData?.date || 'N/A'}</p>
-            <p><strong>Time:</strong> {formData?.time || 'N/A'}</p>
-            <p><strong>Occasion:</strong> {formData?.occasion || 'N/A'}</p>
-            <p><strong>Section:</strong> {formData?.section || 'N/A'}</p>
-            <p><strong>Table Size:</strong> {formData?.tableSize}-seater</p>
+            <dl>
+              <dt>Date:</dt>
+              <dd>{formData?.date || 'N/A'}</dd>
+              <dt>Time:</dt>
+              <dd>{formData?.time || 'N/A'}</dd>
+              <dt>Occasion:</dt>
+              <dd>{formData?.occasion || 'N/A'}</dd>
+              <dt>Section:</dt>
+              <dd>{formData?.section || 'N/A'}</dd>
+              <dt>Table Size:</dt>
+              <dd>{formData?.tableSize ? `${formData.tableSize}-seater` : 'N/A'}</dd>
+            </dl>
           </div>
-          <p className="email-note">A confirmation email will be sent to you shortly.</p>
-        </div>
+          <p className="email-note">
+            A confirmation email will be sent to you shortly.
+          </p>
+        </section>
         
-        {/* Button container for both buttons */}
-        <div className="button-container">
+        {/* Button container */}
+        <div className="button-container" role="group" aria-label="Next actions">
           <button 
             className="new-booking-btn"
             onClick={onNewBooking}
+            aria-describedby="new-booking-help"
           >
             Make Another Booking
           </button>
+          <div id="new-booking-help" className="sr-only">
+            Start a new reservation process
+          </div>
           
           <button 
             className="return-home-btn"
             onClick={handleReturnHome}
+            aria-describedby="return-home-help"
           >
             Return to Home
           </button>
+          <div id="return-home-help" className="sr-only">
+            Go back to the main website homepage
+          </div>
         </div>
       </div>
     </div>
