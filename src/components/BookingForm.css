@@ -1,11 +1,13 @@
 /* ----------  BOOKING CONTAINER  ---------- */
+/* BOOKING FORM BACKGROUND: very light gray */
 .booking-container {
   display: grid;
   place-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(145deg, #495E57 0%, #333333 100%);
+  background: #EDEFEE; /* Very light gray */
 }
+
 
 .booking-container h2 {
   color: #F4CE14;
@@ -27,7 +29,7 @@
   background: #FFFFFF;
   border-radius: 20px;
   border: 2px solid #FBDABB;
-  box-shadow: 0 20px 60px rgba(73, 94, 87, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 /* ----------  FIELD WRAPPER  ---------- */

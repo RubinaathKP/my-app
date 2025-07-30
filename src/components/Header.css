@@ -1,9 +1,10 @@
 .lemon-header {
-  background: #fff;
+  background: #fff; /* Classic white for the header bar for clarity */
   border-bottom: 2px solid #EDEFEE;
   box-shadow: 0 2px 16px rgba(73, 94, 87, 0.06);
   padding: 0;
 }
+
 
 .lemon-nav {
   display: grid;

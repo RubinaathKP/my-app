@@ -1,22 +1,96 @@
 .lemon-nav {
   display: flex;
-  justify-content: flex-end; /* Align nav links to the right */
   align-items: center;
-  gap: 2rem;
-  flex-grow: 1; /* Take remaining space */
+  justify-content: flex-end; /* Align nav items to right */
+  flex-grow: 1;
   min-height: 80px;
   padding-left: 2rem;
+  position: relative;
 }
 
-/* Navigation link styles */
+/* Hamburger Button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-toggle .hamburger,
+.menu-toggle.open .hamburger {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #495E57;
+  border-radius: 1.5px;
+  box-shadow:
+    0 8px 0 #495E57,
+    0 16px 0 #495E57;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle.open .hamburger {
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-toggle.open .hamburger::before,
+.menu-toggle.open .hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background: #F4CE14;
+  top: 7.5px;
+  left: 0;
+  border-radius: 1.5px;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.open .hamburger::before {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.open .hamburger::after {
+  transform: rotate(-45deg);
+  top: 10.5px;
+}
+
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background: #495E57;
+  border-radius: 1.5px;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle .hamburger::before {
+  top: -8px;
+}
+
+.menu-toggle .hamburger::after {
+  top: 8px;
+}
+
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
   margin: 0;
   padding: 0;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Align nav links to the right */
   width: 100%;
 }
 
@@ -34,15 +108,22 @@
   transition: color 0.25s;
 }
 
-.nav-links a.active,
-.nav-links a:focus,
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus {
   color: #F4CE14;
 }
 
-.nav-links a.active::after,
-.nav-links a:focus::after,
-.nav-links a:hover::after {
+.nav-links a:focus-visible {
+  outline: 3px solid #F4CE14;
+  outline-offset: 3px;
+}
+
+.nav-links a.active {
+  color: #F4CE14;
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
   content: "";
   display: block;
   height: 2px;
@@ -54,26 +135,51 @@
   border-radius: 2px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .lemon-nav {
-    padding-left: 1rem;
-    gap: 1rem;
+/* Responsive: Hamburger & Vertical menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
   }
 
   .nav-links {
-    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 220px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(73, 94, 87, 0.1);
+    transition: max-height 0.3s ease;
+    z-index: 1000;
   }
-}
 
-@media (max-width: 650px) {
-  .lemon-nav {
-    justify-content: center;
-    min-height: auto;
-    padding: 1rem 0;
+  .nav-links.active {
+    max-height: 500px; /* show fully */
   }
 
-  .nav-links {
-    gap: 0.8rem;
+  .nav-links li {
+    width: 100%;
+    margin-bottom: 0.55rem;
+  }
+
+  .nav-links li:last-child {
+    margin-bottom: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1.15rem;
+    color: #495E57;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: #F4CE14;
   }
 }

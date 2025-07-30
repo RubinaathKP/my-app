@@ -1,10 +1,12 @@
+/* PAGE BACKGROUND: soft yellow accent */
 .confirmed-booking-page {
   display: grid;
   place-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(145deg, #495E57 0%, #333333 100%);
+  background: #FBDABB; /* Light orange/beige instead of dark */
 }
+
 
 .confirmation-container {
   display: grid;

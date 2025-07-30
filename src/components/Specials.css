@@ -1,9 +1,11 @@
 .specials-section {
+  background: #fff; /* Bright white for focus on the specials */
   max-width: 1200px;
   margin: 0 auto 4rem auto;
   padding: 2.5rem 1rem 1rem 1rem;
   font-family: 'Karla', sans-serif;
 }
+
 
 .specials-title {
   color: #495E57; /* Dark green */

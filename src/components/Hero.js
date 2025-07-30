@@ -15,7 +15,7 @@ const Hero = () => {
           Experience the flavors of the Mediterranean in the heart of Chicago.
         </p>
         <div className="hero-buttons">
-          <Link to='/BookingPage' className="btn btn-primary" aria-label="Reserve a table at Little Lemon">
+          <Link to='/booking' className="btn btn-primary" aria-label="Reserve a table at Little Lemon">
             Reserve a Table
           </Link>
           <Link to="/Specials" className="btn btn-secondary" aria-label="View Little Lemon specials menu">
