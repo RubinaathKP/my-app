@@ -1,0 +1,95 @@
+.footer {
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  font-size: 1rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+}
+
+.footer-top > div {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.footer-logo {
+  max-height: 80px;
+  width: auto;
+  margin-bottom: 12px;
+}
+
+.brand-tagline {
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+.footer-column h4 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.links-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links-column li {
+  margin-bottom: 8px;
+}
+
+.links-column a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.links-column a:hover {
+  text-decoration: underline;
+}
+
+.newsletter-column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-column input[type="email"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter-column button {
+  padding: 10px;
+  border: none;
+  background-color: #e67e22;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.newsletter-column button:hover {
+  background-color: #cf6f1d;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #f2f2f2;
+  margin-right: 16px;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  color: #e67e22;
+}

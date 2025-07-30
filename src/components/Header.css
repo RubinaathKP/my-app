@@ -1,0 +1,136 @@
+.lemon-header {
+  background: #fff;
+  border-bottom: 2px solid #EDEFEE;
+  box-shadow: 0 2px 16px rgba(73, 94, 87, 0.06);
+  padding: 0;
+}
+
+.lemon-nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80px;
+  padding: 0 2rem;
+}
+
+.nav-logo .logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.nav-links li {
+  display: flex;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #495E57;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.25s;
+}
+
+.nav-links a.active,
+.nav-links a:focus,
+.nav-links a:hover {
+  color: #F4CE14;
+}
+
+.nav-links a.active::after,
+.nav-links a:focus::after,
+.nav-links a:hover::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #F4CE14;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  border-radius: 2px;
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, #F4CE14 0%, #EE9972 100%);
+  color: #495E57;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(238, 153, 114, 0.10);
+  transition: background 0.23s, color 0.23s, transform 0.2s;
+  margin-left: auto;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background: linear-gradient(90deg, #EE9972 0%, #F4CE14 100%);
+  color: #495E57;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(238, 153, 114, 0.24);
+}
+
+/* Responsive nav — hamburger and stacking for mobile */
+@media (max-width: 900px) {
+  .lemon-nav {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .nav-links {
+    gap: 1.05rem;
+  }
+}
+
+.lemon-nav {
+  display: grid;
+  grid-template-columns: auto 1fr; /* two columns: logo and nav */
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80px;
+  padding: 0 2rem;
+}
+
+/* Right-align nav links container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  
+  /* Align all navigation links to the right */
+  justify-content: flex-end;  
+  /* Important: take all available space to push links right */
+  width: 100%;
+}
+
+.nav-links li {
+  display: flex;
+}

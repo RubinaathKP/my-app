@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './ConfirmedBooking.css';
+import './ConfirmBooking.css';
 
 const ConfirmedBooking = ({ formData, onNewBooking }) => {
   const headingRef = useRef(null);

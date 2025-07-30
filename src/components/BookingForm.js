@@ -128,7 +128,7 @@ const BookingForm = () => {
     }
 
     // Reset table size when section or time changes
-    if (name === 'section' || name === 'time') {
+    if (name === 'section' || name === 'time' || name === 'date') {
       setFormData((prevData) => ({
         ...prevData,
         tableSize: "",

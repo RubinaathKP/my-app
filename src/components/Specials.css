@@ -1,0 +1,117 @@
+.specials-section {
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  padding: 2.5rem 1rem 1rem 1rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.specials-title {
+  color: #495E57; /* Dark green */
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 800;
+  text-align: left;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+
+/* Specials Grid */
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  gap: 2rem;
+}
+
+.special-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(73, 94, 87, 0.09);
+  overflow: hidden;
+  border: 2px solid #EDEFEE;
+  transition: transform 0.16s, box-shadow 0.16s;
+}
+
+.special-card:hover,
+.special-card:focus-within {
+  transform: translateY(-5px) scale(1.0125);
+  box-shadow: 0 20px 48px rgba(238, 153, 114, 0.22);
+  border-color: #F4CE14;
+}
+
+.special-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #eee;
+  border-radius: 16px 16px 0 0;
+  border-bottom: 2px solid #FBDABB;
+  user-select: none;
+}
+
+/* Content area inside the card */
+.special-card-content {
+  padding: 1.35rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.special-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.special-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.2em 0;
+  color: #495E57;
+  letter-spacing: -0.02em;
+}
+
+.special-price {
+  color: #EE9972; /* Orange */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.special-desc {
+  margin-top: 0.83rem;
+  font-size: 1.05rem;
+  color: #333333;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Accessibility: Ensure focus on card is visible */
+.special-card:focus-within {
+  outline: 3px solid #F4CE14;
+  outline-offset: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .specials-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+  }
+  .special-card-content {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .specials-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .specials-section {
+    padding: 1rem 0.5rem;
+  }
+  .specials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+}
